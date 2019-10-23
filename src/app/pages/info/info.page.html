@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button (click)="dismiss()" color="primary">
+        VOLVER
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Ayuda</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card (click)="expandItem(item)" *ngFor="let item of items">
+    <ion-item detail>
+      <ion-card-header>
+        <ion-card-title>{{item.title}}</ion-card-title>
+      </ion-card-header>
+    </ion-item>
+    <ion-card-content>
+      <app-expandable expandHeight="auto" [expanded]="item.expanded">
+        <div *ngIf="item.content == 1">
+          <p style="text-align: justify">La porción es la cantidad de un alimento que
+            integra cada platillo y que es consumida por
+            una persona en un tiempo de comida
+            (desayuno, comida, cena y colaciones).
+            Las porciones que cada persona necesita
+            consumir, dependen de su edad, sexo, peso,
+            estatura, actividad física, etc.</p>
+        </div>
+        <div *ngIf="item.content == 2">
+          <ion-list>
+            <ion-item color="none" lines="none">
+              <ion-label class="ion-text-wrap">Taza Medidora: (tza)</ion-label>
+              <ion-note color="dark" slot="end">240 mililitros.</ion-note>
+            </ion-item>
+            <ion-item color="none" lines="none">
+              <ion-label class="ion-text-wrap">Cucharada sopera: (cda)</ion-label>
+              <ion-note color="dark" slot="end">30 gramos.</ion-note>
+            </ion-item>
+            <ion-item color="none" lines="none">
+              <ion-label class="ion-text-wrap">Cucharadita cafetera: (cdita)</ion-label>
+              <ion-note color="dark" slot="end">15 gramos.</ion-note>
+            </ion-item>
+            <ion-item color="none" lines="none">
+              <ion-label>Pieza mediada: (pza)</ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+        <div *ngIf="item.content == 3">
+          <p style="text-align: justify">La pasta y el arroz deben de medirse cocidos.</p>
+          <p style="text-align: justify">Frutas y verduras frescas o cocidas.</p>
+          <p style="text-align: justify">Leguminosas cocidas.</p>
+          <p style="text-align: justify">Azúcar, aceite y mantequilla se miden en cucharaditas.</p>
+          <p style="text-align: justify">Lácteos se miden en una taza.</p>
+          <p style="text-align: justify">Carnes: res, pescado, pollo; Pesarlas crudas antes de cocinar.</p>
+        </div>
+        <div *ngIf="item.content == 4">
+          <p style="text-align: justify">Si tu plan de alimentación indica lo siguiente:</p>
+          <p style="text-align: justify">Pan bolillo: debes elegir el más pequeño, retirar el migajón y consumir sólo la
+            corteza.</p>
+          <p style="text-align: justify">Tortilla de harina: elegir la marca Tortillina Tía Rosa, por su pequeño tamaño.
+          </p>
+          <p style="text-align: justify">Gordita de maíz: debe ser máximo del tamaño de una tortilla de maíz regular, y
+            de un grosor no mayor a dos
+            torillas
+            de maíz empalmadas.</p>
+          <br>
+          <ion-note color="dark">Tip: si adquiere una torta, un burrito o una gordita de un tamaño mayor a las porciones
+            que se
+            recomienda, se sugiere consumir sólo la mitad y compartir el resto, o guardarlo para otro momento del día.
+          </ion-note>
+        </div>
+        <div *ngIf="item.content == 5">
+          <ion-slides [options]="sliderOpts">
+            <ion-slide *ngFor="let img of [1, 2, 3, 4]">
+              <img src="assets/info/{{ img }}.png" tappable (click)="openImg(img)">
+            </ion-slide>
+          </ion-slides>
+        </div>
+        <div *ngIf="item.content == 6">
+          <p style="text-align: justify">La rutina deberá realizarse por lo menos 5 días a la semana con una duración de
+            por lo menos 90 minutos al día.</p>
+          <p style="text-align: justify">Comenzará con un calentamiento de 15 min en bicicleta estática o caminata y
+            realizar ejercicios de estiramiento durante 5 minutos más.</p>
+          <ion-slides [options]="sliderOpts">
+            <ion-slide *ngFor="let img of [5]">
+              <img src="assets/info/{{ img }}.png" tappable (click)="openImg(img)">
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </app-expandable>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

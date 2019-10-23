@@ -1,0 +1,33 @@
+.greetImg {
+    height: 20vh;
+    width: auto;
+    margin: auto;
+    display: block;
+}
+
+.menuMeal {
+    border-radius: 15px !important;   
+    background-image: linear-gradient(to right, #dce35b, #45b649) !important;
+}
+
+.menuRoutine {
+    border-radius: 15px !important;   
+    background-image: linear-gradient(to left, #ff4e50, #f9d423) !important;
+}
+
+.menuForm {
+    border-radius: 15px !important;   
+    background: linear-gradient(to left, #654ea3, #eaafc8) !important;
+}
+
+.uniqueContainer {
+    border-style: none;
+    webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+ion-card-header {
+    color: white;
+    font-weight: bolder;
+    font-size: 3vh;
+}

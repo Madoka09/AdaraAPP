@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons *ngIf="titulo != 'WellnessPal'" slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="showInfo()">
+        <ion-icon slot="icon-only" name="help-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons *ngIf="titulo == 'WellnessPal'" slot="primary">
+      <ion-button (click)="openMenu()">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{titulo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu side="end" menuId="userM">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Opciones</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-button (click)="logOut()" expand="full" color="danger">
+      <ion-icon slot="start" name="exit"></ion-icon>
+      Cerrar Sesión
+    </ion-button>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet main></ion-router-outlet>

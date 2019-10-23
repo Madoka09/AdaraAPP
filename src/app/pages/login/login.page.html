@@ -1,0 +1,20 @@
+<ion-content style="text-align: center" padding>
+  <img class="adaraLogo" src="/assets/logoFull.png">
+  <br>
+  <br>
+  <ion-item>
+    <ion-icon name="person" slot="start"></ion-icon>
+    <ion-input [(ngModel)]="username" placeholder="Nombre de Usuario"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-icon name="key" slot="start"></ion-icon>
+    <ion-input [(ngModel)]="password" placeholder="Contraseña" type="password"></ion-input>
+  </ion-item>
+  <br>
+  <br>
+  <ion-button shape="round" size="block" (click)="getElement()">
+    <ion-icon slot="start" name="checkmark-circle-outline"></ion-icon>
+    Acceder
+  </ion-button>
+</ion-content>

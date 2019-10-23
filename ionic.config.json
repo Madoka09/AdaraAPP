@@ -1,5 +1,7 @@
 {
   "name": "WellnessPal",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

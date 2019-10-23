@@ -24,3 +24,23 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-content{
+    --background: none;
+    background-color: #b8c6db;
+    background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+}
+
+.username-display{
+    border-radius: 30px !important;
+    font-size: 0.9em;
+    text-align: center;
+    border: 1px solid #ffffff;
+    border-bottom: 0px !important;
+    box-shadow: none !important;
+}
+
+:root[mode=md]{
+    --ion-font-family:  'Montserrat', sans-serif !important;
+    font-family:  'Montserrat', sans-serif !important;
+}
