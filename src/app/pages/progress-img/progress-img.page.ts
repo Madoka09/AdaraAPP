@@ -2,12 +2,11 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-image-modal',
-  templateUrl: './image-modal.page.html',
-  styleUrls: ['./image-modal.page.scss'],
+  selector: 'app-progress-img',
+  templateUrl: './progress-img.page.html',
+  styleUrls: ['./progress-img.page.scss'],
 })
-export class ImageModalPage implements OnInit {
-
+export class ProgressImgPage implements OnInit {
 
   @ViewChild('slider', { read: ElementRef, static: false })slider: ElementRef;
   img: any;
@@ -21,7 +20,8 @@ export class ImageModalPage implements OnInit {
   constructor(private navParams: NavParams, private modalController: ModalController) { }
 
   ngOnInit() {
-    this.img = this.navParams.get('img');
+    this.img = this.navParams.get('item');
+
   }
 
   zoom(zoomIn: boolean) {

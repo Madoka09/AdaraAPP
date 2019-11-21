@@ -4,10 +4,10 @@
     <ion-card class="calendarHeading">
 		<ion-card-header>
 			<ion-card-title style="text-align: center">
-				Rutina
+				Rutinas Disponibles
 			</ion-card-title>
 			<ion-card-subtitle style="text-align: center">
-				Desliza hacia la derecha...
+				Selecciona un grupo de ejercicios.
 			</ion-card-subtitle>
 		</ion-card-header>
 		<ion-card-content>
@@ -15,66 +15,8 @@
 				<ion-slide>
 					<ion-grid>
 						<ion-row>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('1')">Día 1</ion-button>
-							</ion-col>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('2')">Día 2</ion-button>
-							</ion-col>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('3')">Día 3</ion-button>
-							</ion-col>
-						</ion-row>
-						<ion-row>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('4')">Día 4</ion-button>
-							</ion-col>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('5')">Día 5</ion-button>
-							</ion-col>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('6')">Día 6</ion-button>
-							</ion-col>
-						</ion-row>
-					</ion-grid>
-				</ion-slide>
-				<ion-slide>
-					<ion-grid>
-						<ion-row>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('7')">Día 7</ion-button>
-							</ion-col>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('8')">Día 8</ion-button>
-							</ion-col>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('9')">Día 9</ion-button>
-							</ion-col>
-						</ion-row>
-						<ion-row>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('10')">Día 10</ion-button>
-							</ion-col>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('11')">Día 11</ion-button>
-							</ion-col>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('12')">Día 12</ion-button>
-							</ion-col>
-						</ion-row>
-					</ion-grid>
-				</ion-slide>
-				<ion-slide>
-					<ion-grid>
-						<ion-row>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('13')">Día 13</ion-button>
-							</ion-col>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('14')">Día 14</ion-button>
-							</ion-col>
-							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('15')">Día 15</ion-button>
+							<ion-col size="4" *ngFor="let day of dayController">
+								<ion-button fill="outline" (click)="getRoutine(day)">Gpo. {{day}}</ion-button>
 							</ion-col>
 						</ion-row>
 					</ion-grid>
@@ -83,31 +25,18 @@
 		</ion-card-content>
 	</ion-card>
 
-	<ion-card class="mealMenu">
+	<ion-card>
 		<ion-card-header>
-			<ion-card-title *ngIf="weekDay != undefinied" style="text-align: center">
-				Día {{weekDay}}
-			</ion-card-title>
 			<ion-card-subtitle *ngIf="weekDay == undefinied" style="text-align: center">
-				Toca un día de la semana, porfavor.
+				Selecciona un Ejercicio.
 			</ion-card-subtitle>
 		</ion-card-header>
-		<ion-card-content *ngIf="weekDay != undefinied">
-			<div (click)="expandItem(item)" *ngFor="let item of items">
-				<ion-item-group>
-					<ion-item-divider>
-						<ion-icon name="arrow-dropdown" slot="end"></ion-icon>
-						<ion-label>{{item.meal}}</ion-label>
-					</ion-item-divider>
-				</ion-item-group>
-				<app-expandable expandHeight="auto" [expanded]="item.expanded">
-					<ion-item>
-						<ion-label class="ion-text-wrap">
-							{{item.exer}}
-						</ion-label>
-					</ion-item>
-				</app-expandable>
-			</div>
+		<ion-card-content>
+			<ion-card class="ion-activatable" *ngFor="let items of currentRoutine; let i = index" (click)="showExModal(items)">
+				<ion-card-header>{{items.name}}</ion-card-header>
+				<ion-ripple-effect></ion-ripple-effect>
+			</ion-card>
 		</ion-card-content>
 	</ion-card>
+
 </ion-content>

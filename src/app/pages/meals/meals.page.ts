@@ -16,10 +16,12 @@ export class MealsPage implements OnInit {
   endDay = 0;
   menuSize = 5;
   counter = 0;
+
+  // Recibir userID, desde el dashboard
   userData: any;
   weekDay: string;
   constructor(public callApi: CallApiService, public loading: LoadingController,
-              public toastC: ToastController, public activatedRoute: ActivatedRoute) {
+    public toastC: ToastController, public activatedRoute: ActivatedRoute) {
     this.day = [
       { name: 'Pulsa el día de nuevo, porfavor.' },
       { name: 'Pulsa el día de nuevo, porfavor.' },
@@ -38,7 +40,7 @@ export class MealsPage implements OnInit {
 
     this.activatedRoute.queryParams.subscribe((res) => {
       this.userData = res;
-  });
+    });
   }
 
   ngOnInit() {
@@ -73,7 +75,7 @@ export class MealsPage implements OnInit {
       message: 'Obteniendo Datos...'
     });
     await loading.present();
-    this.callApi.getAll(this.userData.id).subscribe(menu => {
+    this.callApi.getMenu(this.userData.id).subscribe(menu => {
       this.meals = menu;
       console.log(this.meals);
     }, async err => {

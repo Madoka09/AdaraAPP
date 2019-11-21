@@ -10,6 +10,9 @@ const routes: Routes = [
   { path: 'info', loadChildren: './pages/info/info.module#InfoPageModule' },
   { path: 'image-modal', loadChildren: './pages/image-modal/image-modal.module#ImageModalPageModule' },
   { path: 'form', loadChildren: './pages/form/form.module#FormPageModule' },
+  { path: 'progress', loadChildren: './pages/progress/progress.module#ProgressPageModule' },
+  { path: 'progress-img', loadChildren: './pages/progress-img/progress-img.module#ProgressImgPageModule' },
+  { path: 'exercise-modal', loadChildren: './pages/exercise-modal/exercise-modal.module#ExerciseModalPageModule' },
 ];
 
 @NgModule({

@@ -20,14 +20,16 @@
 			Comidas
 		</ion-card-header>
 	</ion-card>
-	<ion-card class="menuRoutine" routerLink="/routines">
+	<br>
+	<ion-card class="menuRoutine" (click)="getRoutines()">
 		<ion-card-header>
 			Rutinas
 		</ion-card-header>
 	</ion-card>
-	<ion-card class="menuForm" routerLink="/form">
+	<br>
+	<ion-card class="menuForm" (click)="getProgress()">
 		<ion-card-header>
-			Formulario de Pasantias
+			Mi Progreso
 		</ion-card-header>
 	</ion-card>
 </ion-content>

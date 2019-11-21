@@ -1,5 +1,234 @@
 <app-header titulo="Formulario"></app-header>
 
-<ion-content>
+<ion-content style="text-align: center;">
+	<ion-card>
+		<ion-card-header>
+			Datos Personales
+		</ion-card-header>
+		<ion-card-content>
+			<ion-item>
+				<ion-input [(ngModel)]="name" placeholder="Nombre"></ion-input>
+			</ion-item>
+			<br>
+			<ion-item>
+				<ion-input [(ngModel)]="age" placeholder="Edad" type="number"></ion-input>
+			</ion-item>
+			<br>
+			<ion-item>
+				<ion-input [(ngModel)]="size" placeholder="Talla" type="number"></ion-input>
+			</ion-item>
+			<br>
+			<ion-item>
+				<ion-input [(ngModel)]="weight" placeholder="Peso" type="number"></ion-input>
+			</ion-item>
+			<br>
+			<ion-item>
+				<ion-datetime [(ngModel)]="date" displayFormat="DD MM YYYY" placeholder="Fecha de Nacimiento"
+					cancelText="Volver" doneText="Aceptar" required>
+				</ion-datetime>
+			</ion-item>
+			<br>
+			<ion-item>
+				<ion-textarea [(ngModel)]="reason" placeholder="Motivo de Consulta"></ion-textarea>
+			</ion-item>
+		</ion-card-content>
+	</ion-card>
+	<br>
+	<ion-card>
+		<ion-card-header>Datos Adicionales</ion-card-header>
+		<ion-card-content>
+			<ion-list>
+				<ion-radio-group>
+					<ion-list-header>
+						<ion-label>AGO</ion-label>
+					</ion-list-header>
 
+					<ion-item *ngIf="agoControl === false || agoControl === undefined">
+						<ion-label>Embarazo</ion-label>
+						<ion-checkbox [(ngModel)]="pregnant" slot="start" value="Embarazo"></ion-checkbox>
+					</ion-item>
+
+					<ion-item *ngIf="agoControl === false || agoControl === undefined">
+						<ion-label>Lactancia</ion-label>
+						<ion-checkbox [(ngModel)]="lactancy" slot="start" value="Lactancia"></ion-checkbox>
+					</ion-item>
+
+					<ion-item *ngIf="agoControl === false || agoControl === undefined">
+						<ion-label>Menopausia</ion-label>
+						<ion-checkbox [(ngModel)]="menopause" slot="start" value="Menopausia"></ion-checkbox>
+					</ion-item>
+
+					<ion-item>
+						<ion-label>Ninguno</ion-label>
+						<ion-checkbox [(ngModel)]="agoControl" slot="start"></ion-checkbox>
+					</ion-item>
+
+				</ion-radio-group>
+			</ion-list>
+			<div *ngIf="pregnant === true">
+				<br>
+				<ion-item>
+					<ion-datetime [(ngModel)]="period" displayFormat="DD MM YYYY" cancelText="Volver" doneText="Aceptar"
+						placeholder="Fecha del último periodo menstrual" (ionChange)="calculateBirth()">
+					</ion-datetime>
+				</ion-item>
+			</div>
+			<br>
+			<ion-item>
+				<ion-textarea [(ngModel)]="illness" placeholder="Enfermedades"></ion-textarea>
+			</ion-item>
+			<br>
+			<ion-item>
+				<ion-textarea [(ngModel)]="medication" placeholder="Medicamentos"></ion-textarea>
+			</ion-item>
+			<br>
+			<ion-item>
+				<ion-textarea [(ngModel)]="surgery" placeholder="Cirugías"></ion-textarea>
+			</ion-item>
+			<br>
+			<ion-list>
+				<ion-radio-group>
+					<ion-list-header>
+						<ion-label>Alergias a medicamentos y/o alimentos</ion-label>
+					</ion-list-header>
+
+					<ion-item *ngIf="noAlergies === undefined || noAlergies === false">
+						<ion-label>Sí</ion-label>
+						<ion-checkbox [(ngModel)]="alergies" slot="start" value="SI"></ion-checkbox>
+					</ion-item>
+
+					<ion-item *ngIf="alergies === undefined || alergies === false">
+						<ion-label>No</ion-label>
+						<ion-checkbox [(ngModel)]="noAlergies" slot="start" value="NO"></ion-checkbox>
+					</ion-item>
+				</ion-radio-group>
+			</ion-list>
+			<div *ngIf="alergies === true">
+				<br>
+				<ion-item>
+					<ion-textarea [(ngModel)]="alergyReason" placeholder="¿Cuales?"></ion-textarea>
+				</ion-item>
+			</div>
+
+			<br>
+			<ion-list>
+				<ion-radio-group>
+					<ion-list-header>
+						<ion-label>¿Practicas algún ejercicio?</ion-label>
+					</ion-list-header>
+
+					<ion-item *ngIf="noExercise === undefined || noExercise === false">
+						<ion-label>Sí</ion-label>
+						<ion-checkbox [(ngModel)]="exercise" slot="start" value="SI"></ion-checkbox>
+					</ion-item>
+
+					<ion-item *ngIf="exercise === undefined || exercise === false">
+						<ion-label>No</ion-label>
+						<ion-checkbox [(ngModel)]="noExercise" slot="start" value="NO"></ion-checkbox>
+					</ion-item>
+				</ion-radio-group>
+			</ion-list>
+			<div *ngIf="exercise === true">
+				<br>
+				<ion-item>
+					<ion-input [(ngModel)]="exerciseType" placeholder="Tipo de Ejercicio"></ion-input>
+				</ion-item>
+				<br>
+				<ion-item>
+					<ion-input [(ngModel)]="exerciseFreq" placeholder="Frecuencia del ejercicio"></ion-input>
+				</ion-item>
+				<br>
+				<ion-item>
+					<ion-input [(ngModel)]="exerciseTime" placeholder="Duración"></ion-input>
+				</ion-item>
+			</div>
+			<br>
+			<ion-list>
+				<ion-radio-group>
+					<ion-list-header>
+						<ion-label>¿Consumo de Alcohol?</ion-label>
+					</ion-list-header>
+
+					<ion-item *ngIf="noAlcohol === undefined || noAlcohol === false">
+						<ion-label>Sí</ion-label>
+						<ion-checkbox [(ngModel)]="alcohol" slot="start" value="SI"></ion-checkbox>
+					</ion-item>
+
+					<ion-item *ngIf="alcohol === undefined || alcohol === false">
+						<ion-label>No</ion-label>
+						<ion-checkbox [(ngModel)]="noAlcohol" slot="start" value="NO"></ion-checkbox>
+					</ion-item>
+				</ion-radio-group>
+			</ion-list>
+			<div *ngIf="alcohol === true">
+				<br>
+				<ion-item>
+					<ion-input [(ngModel)]="alcoholFreq" placeholder="Frecuencia de consumo"></ion-input>
+				</ion-item>
+			</div>
+			<br>
+			<ion-list>
+				<ion-radio-group>
+					<ion-list-header>
+						<ion-label>¿Consumo de Tabaco?</ion-label>
+					</ion-list-header>
+
+					<ion-item *ngIf="noTobacco === undefined || noTobacco === false">
+						<ion-label>Sí</ion-label>
+						<ion-checkbox [(ngModel)]="tobacco" slot="start" value="SI"></ion-checkbox>
+					</ion-item>
+
+					<ion-item *ngIf="tobacco === undefined || tobacco === false">
+						<ion-label>No</ion-label>
+						<ion-checkbox [(ngModel)]="noTobacco" slot="start" value="NO"></ion-checkbox>
+					</ion-item>
+				</ion-radio-group>
+			</ion-list>
+			<br>
+			<ion-item>
+				<ion-textarea [(ngModel)]="drugs" placeholder="Uso de otro tipo de Sustancias"></ion-textarea>
+			</ion-item>
+		</ion-card-content>
+	</ion-card>
+	<br>
+	<ion-card>
+		<ion-card-header>
+			Adicionales
+		</ion-card-header>
+		<ion-card-content>
+			<ion-item>
+				<ion-textarea [(ngModel)]="hatedFood"
+					placeholder="Alimentos que no le agradan o no es habitual su consumo"></ion-textarea>
+			</ion-item>
+			<br>
+			<ion-list>
+				<ion-radio-group>
+					<ion-list-header>
+						<ion-label>¿Realiza su desayuno y comida en casa?</ion-label>
+					</ion-list-header>
+
+					<ion-item *ngIf="noFoodHome === undefined || noFoodHome === false">
+						<ion-label>Sí</ion-label>
+						<ion-checkbox [(ngModel)]="foodHome" slot="start" value="SI"></ion-checkbox>
+					</ion-item>
+
+					<ion-item *ngIf="foodHome === undefined || foodHome === false">
+						<ion-label>No</ion-label>
+						<ion-checkbox [(ngModel)]="noFoodHome" slot="start" value="NO"></ion-checkbox>
+					</ion-item>
+				</ion-radio-group>
+			</ion-list>
+			<br>
+			<ion-item>
+				<ion-input [(ngModel)]="email" type="email" placeholder="E-mail de Contacto"></ion-input>
+			</ion-item>
+		</ion-card-content>
+	</ion-card>
+	<br>
+	<ion-button color="success" shape="round" (click)="downloadPdf()">
+		<ion-icon slot="start" name="paper-plane"></ion-icon>
+		Enviar Formulario
+	</ion-button>
+	<br>
+	<br>
 </ion-content>

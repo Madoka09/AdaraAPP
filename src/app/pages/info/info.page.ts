@@ -10,6 +10,7 @@ import { ImageModalPage } from '../image-modal/image-modal.page';
 export class InfoPage implements OnInit {
   public items: any = [];
   public containers: any = [];
+  
 
   constructor(public modalCtrl: ModalController) {
     this.items = [

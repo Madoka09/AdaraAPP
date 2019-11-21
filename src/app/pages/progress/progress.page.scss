@@ -1,0 +1,18 @@
+.calendarHeading {
+    border-radius: 15px;
+}
+
+.mealMenu {
+    border-radius: 15px;
+    background-color: #ffffff !important;
+}
+
+ion-slide {
+    --bullet-background:
+    --bullet-background-active;
+}
+
+ion-item {
+    --background: rgba(0,0,0,0);
+    --border-color: rgba(0, 0, 0, 0);
+}

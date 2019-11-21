@@ -1,0 +1,40 @@
+<app-header titulo="Mi Progreso"></app-header>
+
+<ion-content padding>
+  <ion-card class="calendarHeading">
+    <ion-card-header>
+      <ion-card-title style="text-align: center">
+        Galería
+      </ion-card-title>
+      <ion-card-subtitle style="text-align: center">
+        Aquí encontrarás el historial de las imágenes que has compartido con nosotros.
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <ion-slides [options]="slideOpts">
+    <ion-slide *ngFor="let item of imageRoutes" tappable (click)="openImg(item)">
+      <img src="{{item}}">
+    </ion-slide>
+  </ion-slides>
+  <br>
+  <ion-card class="calendarHeading">
+    <ion-card-header>
+      <ion-card-title style="text-align: center">
+        Documentos
+      </ion-card-title>
+      <ion-card-subtitle style="text-align: center">
+        Aquí encontrarás los documentos relevantes a tu proceso.
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card *ngFor="let documents of objectDocumentData">
+        <ion-card-header>
+          <ion-item (click)="downloadDoc(documents.path, documents.name)">
+            <ion-icon name="document" slot="start"></ion-icon>
+            {{documents.name}}.pdf
+          </ion-item>
+        </ion-card-header>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
