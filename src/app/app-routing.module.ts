@@ -13,6 +13,8 @@ const routes: Routes = [
   { path: 'progress', loadChildren: './pages/progress/progress.module#ProgressPageModule' },
   { path: 'progress-img', loadChildren: './pages/progress-img/progress-img.module#ProgressImgPageModule' },
   { path: 'exercise-modal', loadChildren: './pages/exercise-modal/exercise-modal.module#ExerciseModalPageModule' },
+  { path: 'recipes', loadChildren: './pages/recipes/recipes.module#RecipesPageModule' },
+  { path: 'recipes-modal', loadChildren: './pages/recipes-modal/recipes-modal.module#RecipesModalPageModule' },
 ];
 
 @NgModule({

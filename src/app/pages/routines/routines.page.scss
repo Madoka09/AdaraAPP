@@ -1,8 +1,16 @@
 .calendarHeading {
     border-radius: 15px;
+    background-color: #ffffff !important;
+    border-top: 3px solid #ffa44e;
 }
 
 ion-button {
     display: block;
-    --background-activated: solid;
 }
+
+.routineMenu {
+    border-radius: 15px;
+    background-color: #ffffff !important;
+    border-top: 3px solid #ffa44e;
+}
+

@@ -11,12 +11,12 @@
 			</ion-card-subtitle>
 		</ion-card-header>
 		<ion-card-content>
-			<ion-slides [options]="sliderOpts" scrollbar="true">
+			<ion-slides scrollbar="true">
 				<ion-slide>
 					<ion-grid>
 						<ion-row>
 							<ion-col size="4" *ngFor="let day of dayController">
-								<ion-button fill="outline" (click)="getRoutine(day)">Gpo. {{day}}</ion-button>
+								<ion-button fill="outline" color="warning" (click)="getRoutine(day)">Gpo. {{day}}</ion-button>
 							</ion-col>
 						</ion-row>
 					</ion-grid>
@@ -25,14 +25,14 @@
 		</ion-card-content>
 	</ion-card>
 
-	<ion-card>
+	<ion-card class="routineMenu">
 		<ion-card-header>
-			<ion-card-subtitle *ngIf="weekDay == undefinied" style="text-align: center">
+			<ion-card-subtitle style="text-align: center">
 				Selecciona un Ejercicio.
 			</ion-card-subtitle>
 		</ion-card-header>
 		<ion-card-content>
-			<ion-card class="ion-activatable" *ngFor="let items of currentRoutine; let i = index" (click)="showExModal(items)">
+			<ion-card class="routineMenu" *ngFor="let items of currentRoutine; let i = index" (click)="showExModal(items)">
 				<ion-card-header>{{items.name}}</ion-card-header>
 				<ion-ripple-effect></ion-ripple-effect>
 			</ion-card>

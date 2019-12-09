@@ -31,4 +31,8 @@ export class DashboardPage implements OnInit {
     this.router.navigate(['/progress'], {queryParams: this.userData});
   }
 
+  getRecipes() {
+    this.router.navigate(['/recipes'], {queryParams: this.userData});
+  }
+
 }

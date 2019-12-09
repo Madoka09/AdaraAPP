@@ -13,18 +13,20 @@ import { InfoPageModule } from './pages/info/info.module';
 import { ImageModalPageModule } from './pages/image-modal/image-modal.module';
 import { ProgressImgPageModule } from './pages/progress-img/progress-img.module';
 import { ExerciseModalPageModule } from './pages/exercise-modal/exercise-modal.module';
+import { RecipesModalPageModule } from './pages/recipes-modal/recipes-modal.module';
 import { HttpClientModule } from '@angular/common/http';
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   // tslint:disable-next-line: max-line-length
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ComponentsModule, InfoPageModule, ImageModalPageModule, HttpClientModule, ProgressImgPageModule, ExerciseModalPageModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ComponentsModule, InfoPageModule, ImageModalPageModule, HttpClientModule, ProgressImgPageModule, ExerciseModalPageModule, RecipesModalPageModule],
   providers: [
     StatusBar,
     SplashScreen,
@@ -32,6 +34,7 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
     FileOpener,
     FileTransfer,
     YoutubeVideoPlayer,
+    ScreenOrientation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent]

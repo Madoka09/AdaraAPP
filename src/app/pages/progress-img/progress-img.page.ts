@@ -9,8 +9,8 @@ import { NavParams, ModalController } from '@ionic/angular';
 export class ProgressImgPage implements OnInit {
 
   @ViewChild('slider', { read: ElementRef, static: false })slider: ElementRef;
-  img: any;
 
+  item: any;
   sliderOpts = {
     zoom: {
       maxRatio: 5
@@ -20,7 +20,7 @@ export class ProgressImgPage implements OnInit {
   constructor(private navParams: NavParams, private modalController: ModalController) { }
 
   ngOnInit() {
-    this.img = this.navParams.get('item');
+    this.item = this.navParams.get('item');
 
   }
 

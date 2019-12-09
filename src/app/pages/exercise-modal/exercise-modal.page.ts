@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParams, ModalController, AngularDelegate } from '@ionic/angular';
+import { NavParams, ModalController, ToastController } from '@ionic/angular';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 
 
@@ -12,7 +12,8 @@ export class ExerciseModalPage implements OnInit {
 
   exercise: any;
   videoId: any;
-  constructor(private navParams: NavParams, private modalController: ModalController, private youtube: YoutubeVideoPlayer) { }
+  constructor(private navParams: NavParams, private modalController: ModalController, private youtube: YoutubeVideoPlayer,
+              private toast: ToastController ) { }
 
   ngOnInit() {
     this.exercise = this.navParams.get('exercise');
@@ -23,11 +24,20 @@ export class ExerciseModalPage implements OnInit {
     this.modalController.dismiss();
   }
 
-  openVideo(url) {
+  async openVideo(url) {
     // obtener id de video
     const id = url.split('v=');
-    console.log(id[1]);
-    this.youtube.openVideo(id[1]);
+
+    // Comprobar que sea un video valido
+    if (id[1] === undefined || id[1] === null || id[1] === '') {
+      const toast = await this.toast.create({
+        message: 'Este ejercicio no tiene un video.',
+        duration: 3500,
+      });
+      toast.present();
+    } else {
+      this.youtube.openVideo(id[1]);
+    }
   }
 
 }

@@ -16,7 +16,8 @@ export class MealsPage implements OnInit {
   endDay = 0;
   menuSize = 5;
   counter = 0;
-
+  undefined: any;
+  
   // Recibir userID, desde el dashboard
   userData: any;
   weekDay: string;

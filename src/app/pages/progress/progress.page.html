@@ -11,7 +11,7 @@
       </ion-card-subtitle>
     </ion-card-header>
   </ion-card>
-  <ion-slides [options]="slideOpts">
+  <ion-slides>
     <ion-slide *ngFor="let item of imageRoutes" tappable (click)="openImg(item)">
       <img src="{{item}}">
     </ion-slide>

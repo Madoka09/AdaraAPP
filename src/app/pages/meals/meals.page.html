@@ -11,29 +11,29 @@
 			</ion-card-subtitle>
 		</ion-card-header>
 		<ion-card-content>
-			<ion-slides [options]="sliderOpts" scrollbar="true">
+			<ion-slides scrollbar="true">
 				<ion-slide>
 					<ion-grid>
 						<ion-row>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('1')">Día 1</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('1')">Día 1</ion-button>
 							</ion-col>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('2')">Día 2</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('2')">Día 2</ion-button>
 							</ion-col>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('3')">Día 3</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('3')">Día 3</ion-button>
 							</ion-col>
 						</ion-row>
 						<ion-row>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('4')">Día 4</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('4')">Día 4</ion-button>
 							</ion-col>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('5')">Día 5</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('5')">Día 5</ion-button>
 							</ion-col>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('6')">Día 6</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('6')">Día 6</ion-button>
 							</ion-col>
 						</ion-row>
 					</ion-grid>
@@ -42,24 +42,24 @@
 					<ion-grid>
 						<ion-row>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('7')">Día 7</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('7')">Día 7</ion-button>
 							</ion-col>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('8')">Día 8</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('8')">Día 8</ion-button>
 							</ion-col>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('9')">Día 9</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('9')">Día 9</ion-button>
 							</ion-col>
 						</ion-row>
 						<ion-row>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('10')">Día 10</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('10')">Día 10</ion-button>
 							</ion-col>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('11')">Día 11</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('11')">Día 11</ion-button>
 							</ion-col>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('12')">Día 12</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('12')">Día 12</ion-button>
 							</ion-col>
 						</ion-row>
 					</ion-grid>
@@ -68,13 +68,13 @@
 					<ion-grid>
 						<ion-row>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('13')">Día 13</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('13')">Día 13</ion-button>
 							</ion-col>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('14')">Día 14</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('14')">Día 14</ion-button>
 							</ion-col>
 							<ion-col size="4">
-								<ion-button fill="outline" (click)="clickDay('15')">Día 15</ion-button>
+								<ion-button fill="outline" color="success" (click)="clickDay('15')">Día 15</ion-button>
 							</ion-col>
 						</ion-row>
 					</ion-grid>
@@ -85,14 +85,14 @@
 
 	<ion-card class="mealMenu">
 		<ion-card-header>
-			<ion-card-title *ngIf="weekDay != undefinied" style="text-align: center">
+			<ion-card-title *ngIf="weekDay != undefined" style="text-align: center">
 				Día {{weekDay}}
 			</ion-card-title>
-			<ion-card-subtitle *ngIf="weekDay == undefinied" style="text-align: center">
+			<ion-card-subtitle *ngIf="weekDay == undefined" style="text-align: center">
 				Toca un día de la semana, porfavor.
 			</ion-card-subtitle>
 		</ion-card-header>
-		<ion-card-content *ngIf="weekDay != undefinied">
+		<ion-card-content *ngIf="weekDay != undefined">
 			<div (click)="expandItem(item)" *ngFor="let item of items">
 				<ion-item-group>
 					<ion-item-divider>
@@ -109,5 +109,6 @@
 				</app-expandable>
 			</div>
 		</ion-card-content>
+		<br>
 	</ion-card>
 </ion-content>

@@ -151,16 +151,25 @@ export class FormPage implements OnInit {
     const periodYear = this.period.split('-')[0];
 
     // Aplicar regla de Naegele
-    if (periodMonth >= 4) {
-      const birthDay = parseInt(periodDayStep2) + 7;
+
+    // Comprobar maximo de dias
+    if (periodDayStep2 >= 24 ) {
+      const birthDay = ((parseInt(periodDayStep2) + 7) - 30 ) + 1;
       const birthYear = parseInt(periodYear) + 1;
-      const birthMonth = parseInt(periodMonth) - 3;
+      const birthMonth = parseInt(periodMonth) - 2;
       this.birth = `${birthDay}-${birthMonth}-${birthYear}`;
     } else {
-      const birthDay = parseInt(periodDayStep2) + 7;
-      const birthYear = parseInt(periodYear);
-      const birthMonth = parseInt(periodMonth) + 9;
-      this.birth = `${birthDay}-${birthMonth}-${birthYear}`;
+      if (periodMonth >= 4) {
+        const birthDay = parseInt(periodDayStep2) + 7;
+        const birthYear = parseInt(periodYear) + 1;
+        const birthMonth = parseInt(periodMonth) - 3;
+        this.birth = `${birthDay}-${birthMonth}-${birthYear}`;
+      } else {
+        const birthDay = parseInt(periodDayStep2) + 7;
+        const birthYear = parseInt(periodYear);
+        const birthMonth = parseInt(periodMonth) + 9;
+        this.birth = `${birthDay}-${birthMonth}-${birthYear}`;
+      }
     }
 
     // Calcular semanas de Embarazo
