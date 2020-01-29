@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'routines', loadChildren: './pages/routines/routines.module#RoutinesPageModule' },
   { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule' },
@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'exercise-modal', loadChildren: './pages/exercise-modal/exercise-modal.module#ExerciseModalPageModule' },
   { path: 'recipes', loadChildren: './pages/recipes/recipes.module#RecipesPageModule' },
   { path: 'recipes-modal', loadChildren: './pages/recipes-modal/recipes-modal.module#RecipesModalPageModule' },
+  { path: 'chat', loadChildren: './pages/chat/chat.module#ChatPageModule' },
 ];
 
 @NgModule({

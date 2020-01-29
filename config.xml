@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="adara.wellnesspal" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="astra.wellnesspal.galmoan" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>WellnessPal</name>
-    <description>Aplicación del Consultorio de Nutricion y estilo de vida, Adara</description>
+    <description>Aplicación del Para el control y gestión de consultorios de Nutricion</description>
     <author email="personal.galvan.francisco@gmail.com">Juan Francisco Galván De Santiago</author>
     <content src="index.html" />
     <access origin="*" />
